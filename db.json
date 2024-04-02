@@ -6,6 +6,13 @@
       "role": "Role1",
       "email": "hammadshamir7@gmail.com",
       "password": "123"
+    },
+    {
+      "id": "4322",
+      "fullname": "Shamir",
+      "role": "Role1",
+      "email": "hammadshamir71@gmail.com",
+      "password": "098"
     }
   ]
 }

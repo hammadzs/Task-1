@@ -21,17 +21,26 @@ export default function Home() {
       [e.target.name]: e.target.value
     });
   }
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    fetch("http://localhost:8000/users", {
-      method: "GET",
-      headers: { "Content-Type": "application/json" },
-      mode: "cors",
-      body: JSON.stringify(formData),
-    }).then(() => {
-      console.log("new list addes");
-    });
-  }
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    fetch("http://localhost:8000/users/")
+      .then(async (result) => {
+        const data = await result.json()
+        data.map((user: any) => {
+          if (user.email === formData.email) {
+            if (user.password === formData.password) {
+              console.log("login success");
+            } else {
+              console.log("Invalid");
+            }
+          } else {
+            console.log("Invalid");
+          }
+        })
+      })
+  };
+
+
   return (
     <PageLayout>
       <form onSubmit={handleSubmit} className="space-y-4">
