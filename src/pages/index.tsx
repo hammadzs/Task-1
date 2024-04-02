@@ -9,7 +9,7 @@ export default function Home() {
     <main
       className={`relative flex min-h-screen flex-col items-center justify-center p-24 ${inter.className}`}
     >
-      <div className="shadow-lg max-w-[450px] w-full p-4 space-y-4">
+      <div className="shadow-lg max-w-[450px] w-full px-6 py-8 space-y-6 z-10">
         <div className="flex justify-center items-center gap-x-2">
           <Image
             src={'/img/logo.png'}
@@ -28,7 +28,7 @@ export default function Home() {
         width={500}
         height={500}
         alt="Frame Image"
-        className="max-w-full w-full absolute left-0 bottom-0"
+        className="max-w-full w-full absolute left-0 bottom-0 z-[-1]"
       />
     </main>
   );
