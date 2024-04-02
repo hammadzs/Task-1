@@ -5,13 +5,13 @@ interface PageProps {
 }
 const PageLayout = ({ children }: PageProps) => {
     return (
-        <div className=" max-w-[450px] w-full">
-            <div className="shadow-lg px-6 py-8 space-y-6 z-10">
+        <div className="w-full flex justify-center items-center">
+            <div className="max-w-[450px] w-full rounded-lg shadow-lg px-6 py-8 space-y-6 z-20">
                 <div className="flex justify-center items-center gap-x-2">
                     <Image
                         src={'/img/logo.png'}
-                        width={400}
-                        height={400}
+                        width={100}
+                        height={100}
                         alt="Logo"
                         className="max-w-10 w-full"
                     />
@@ -25,7 +25,7 @@ const PageLayout = ({ children }: PageProps) => {
                 width={500}
                 height={500}
                 alt="Frame Image"
-                className="max-w-full w-full absolute left-0 bottom-0 z-[-1]"
+                className="max-w-full w-full absolute left-0 bottom-0 z-10"
             />
         </div>
     )
