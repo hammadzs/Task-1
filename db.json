@@ -1,5 +1,18 @@
 {
   "users": [
-    
+    {
+      "id": "a36e",
+      "fullname": "Hammad",
+      "role": "Role1",
+      "email": "hammadshamir7@gmail.com",
+      "password": "hammad123"
+    },
+    {
+      "id": "3c05",
+      "fullname": "Hammad",
+      "role": "Role2",
+      "email": "hammadshamir70@gmail.com",
+      "password": "hammad123"
+    }
   ]
 }

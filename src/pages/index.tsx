@@ -33,7 +33,7 @@ export default function Home() {
     } else if (user.password !== formData.password) {
       toast.error("Invalid Password");
     } else {
-      toast.success("Success");
+      toast.success("Login Successfully");
     }
   };
 
