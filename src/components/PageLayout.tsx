@@ -5,7 +5,7 @@ interface PageProps {
 }
 const PageLayout = ({ children }: PageProps) => {
     return (
-        <div className="w-full flex justify-center items-center">
+        <div className="w-full h-full flex justify-center items-center">
             <div className="max-w-[450px] w-full rounded-lg shadow-lg px-6 py-8 space-y-6 z-20">
                 <div className="flex justify-center items-center gap-x-2">
                     <Image
@@ -22,9 +22,10 @@ const PageLayout = ({ children }: PageProps) => {
             </div>
             <Image
                 src={'/img/Frame.png'}
-                width={500}
-                height={500}
+                width={1000}
+                height={1000}
                 alt="Frame Image"
+                priority={false}
                 className="max-w-full w-full absolute left-0 bottom-0 z-10"
             />
         </div>
