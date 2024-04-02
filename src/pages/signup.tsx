@@ -23,8 +23,15 @@ const signup = () => {
         });
     }
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault()
-        console.log(formData);
+        e.preventDefault()   
+        fetch("http://localhost:8000/users", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            mode: "cors",
+            body: JSON.stringify(formData),
+        }).then(() => {
+            console.log("new list addes");
+        });
     }
     return (
         <PageLayout>

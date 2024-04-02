@@ -23,7 +23,14 @@ export default function Home() {
   }
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    console.log(formData);
+    fetch("http://localhost:8000/users", {
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+      mode: "cors",
+      body: JSON.stringify(formData),
+    }).then(() => {
+      console.log("new list addes");
+    });
   }
   return (
     <PageLayout>

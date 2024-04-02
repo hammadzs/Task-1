@@ -1,0 +1,11 @@
+{
+  "users": [
+    {
+      "id": "fd49",
+      "fullname": "Hammad",
+      "role": "Role1",
+      "email": "hammadshamir7@gmail.com",
+      "password": "123"
+    }
+  ]
+}
