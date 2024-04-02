@@ -1,45 +1,41 @@
 
 import Link from "next/link"
-import { useState } from "react"
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
 
 import PageLayout from "@/components/PageLayout";
-import {toast} from "react-hot-toast";
-
-interface FormData {
-  email: string;
-  password: string;
-}
+import { toast } from "react-hot-toast";
 
 
 export default function Home() {
-  const [formData, setFormData] = useState<FormData>({
-    email: '',
-    password: ''
-  });
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  }
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const res = await fetch("http://localhost:8000/users/");
-    const users = await res.json();
-    const user = users.find((u: any) => u.email === formData.email);
+  const formik = useFormik({
+    initialValues: {
+      email: '',
+      password: ''
+    },
+    validationSchema: Yup.object({
+      email: Yup.string().email('Invalid email address').required('Email Required'),
+      password: Yup.string()
+        .required('Password Required'),
+    }),
+    onSubmit: async values => {
+      const res = await fetch("http://localhost:8000/users/");
+      const users = await res.json();
+      const user = users.find((u: any) => u.email === values.email);
 
-    if (!user) {
-      toast.error("Invalid Email Address");
-    } else if (user.password !== formData.password) {
-      toast.error("Invalid Password");
-    } else {
-      toast.success("Login Successfully");
-    }
-  };
+      if (!user) {
+        toast.error("Invalid Email Address");
+      } else if (user.password !== values.password) {
+        toast.error("Invalid Password");
+      } else {
+        toast.success("Login Successfully");
+      }
+    },
+  });
 
   return (
     <PageLayout>
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <form onSubmit={formik.handleSubmit} className="space-y-4">
         <label
           htmlFor="email"
           className="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600"
@@ -50,7 +46,9 @@ export default function Home() {
             name="email"
             className="peer border-none bg-transparent placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 text-base p-4"
             placeholder="email"
-            onChange={handleChange}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.email}
           />
 
           <span
@@ -59,6 +57,9 @@ export default function Home() {
             Email
           </span>
         </label>
+        {formik.touched.email && formik.errors.email ? (
+          <div className="text-red-300">{formik.errors.email}</div>
+        ) : null}
         <label
           htmlFor="password"
           className="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600"
@@ -69,7 +70,9 @@ export default function Home() {
             name="password"
             className="peer border-none bg-transparent placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 text-base p-4"
             placeholder="password"
-            onChange={handleChange}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.password}
           />
 
           <span
@@ -78,6 +81,9 @@ export default function Home() {
             Password
           </span>
         </label>
+        {formik.touched.password && formik.errors.password ? (
+          <div className="text-red-300">{formik.errors.password}</div>
+        ) : null}
         <button type="submit" className="bg-[#666CFF] w-full text-white p-3 rounded-lg">LOGIN</button>
         <h3 className="text-sm text-gray-500 text-center">Don’t have an account? <Link className="text-[#666CFF]" href={'/signup'}>Sign Up</Link></h3>
       </form>

@@ -1,17 +1,10 @@
 {
   "users": [
     {
-      "id": "a36e",
-      "fullname": "Hammad",
-      "role": "Role1",
-      "email": "hammadshamir7@gmail.com",
-      "password": "hammad123"
-    },
-    {
-      "id": "3c05",
+      "id": "0c1f",
       "fullname": "Hammad",
       "role": "Role2",
-      "email": "hammadshamir70@gmail.com",
+      "email": "hammadshamir7@gmail.com",
       "password": "hammad123"
     }
   ]

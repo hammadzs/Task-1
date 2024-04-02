@@ -1,45 +1,45 @@
 import Link from "next/link"
-import { useState } from "react"
 import PageLayout from "@/components/PageLayout"
 import { toast } from "react-hot-toast";
 import { useRouter } from "next/router";
-
-interface FormData {
-    fullname: string;
-    role: string;
-    email: string;
-    password: string;
-}
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
 
 const signup = () => {
     const router = useRouter()
-    const [formData, setFormData] = useState<FormData>({
-        fullname: '',
-        role: '',
-        email: '',
-        password: ''
+   
+    const formik = useFormik({
+        initialValues: {
+            fullname: '',
+            role: '',
+            email: '',
+            password: ''
+        },
+        validationSchema: Yup.object({
+            fullname: Yup.string()
+                .max(15, 'Must be 15 characters or less')
+                .required('Full Name Required'),
+            role: Yup.string()
+                .required('Role Required'),
+            email: Yup.string().email('Invalid email address').required('Email Required'),
+            password: Yup.string()
+                .required('Password Required'),
+        }),
+        onSubmit: values => {
+            fetch("http://localhost:8000/users", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                mode: "cors",
+                body: JSON.stringify(values),
+            }).then(() => {
+                toast.success("User Registers Successfully");
+                router.push("/")
+            });
+        },
     });
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-        setFormData({
-            ...formData,
-            [e.target.name]: e.target.value
-        });
-    }
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault()
-        fetch("http://localhost:8000/users", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            mode: "cors",
-            body: JSON.stringify(formData),
-        }).then(() => {
-            toast.success("User Registers Successfully");
-            router.push("/")
-        });
-    }
     return (
         <PageLayout>
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={formik.handleSubmit} className="space-y-4">
                 <label
                     htmlFor="fullname"
                     className="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600"
@@ -50,7 +50,9 @@ const signup = () => {
                         name="fullname"
                         className="peer border-none bg-transparent placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 text-base p-4"
                         placeholder="Full Name"
-                        onChange={handleChange}
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                        value={formik.values.fullname}
                     />
 
                     <span
@@ -59,16 +61,24 @@ const signup = () => {
                         Full Name
                     </span>
                 </label>
+                {formik.touched.fullname && formik.errors.fullname ? (
+                    <div className="text-red-300">{formik.errors.fullname}</div>
+                ) : null}
                 <select
                     name="role"
                     id="role"
                     className="w-full p-4 relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600"
-                    onChange={handleChange}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    value={formik.values.role}
                 >
                     <option value="" >Select Role</option>
                     <option value="Role1">Role 1</option>
                     <option value="Role2">Role 2</option>
                 </select>
+                {formik.touched.role && formik.errors.role ? (
+                    <div className="text-red-300">{formik.errors.role}</div>
+                ) : null}
                 <label
                     htmlFor="email"
                     className="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600"
@@ -79,7 +89,9 @@ const signup = () => {
                         name="email"
                         className="peer border-none bg-transparent placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 text-base p-4"
                         placeholder="email"
-                        onChange={handleChange}
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                        value={formik.values.email}
                     />
 
                     <span
@@ -88,6 +100,9 @@ const signup = () => {
                         Email
                     </span>
                 </label>
+                {formik.touched.email && formik.errors.email ? (
+                    <div className="text-red-300">{formik.errors.email}</div>
+                ) : null}
                 <label
                     htmlFor="password"
                     className="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600"
@@ -98,7 +113,9 @@ const signup = () => {
                         name="password"
                         className="peer border-none bg-transparent placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 text-base p-4"
                         placeholder="password"
-                        onChange={handleChange}
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                        value={formik.values.password}
                     />
 
                     <span
@@ -107,6 +124,9 @@ const signup = () => {
                         Password
                     </span>
                 </label>
+                {formik.touched.password && formik.errors.password ? (
+                    <div className="text-red-300">{formik.errors.password}</div>
+                ) : null}
                 <button type="submit" className="bg-[#666CFF] w-full text-white p-3 rounded-lg">SIGN UP</button>
                 <h3 className="text-sm text-gray-500 text-center">Don’t have an account? <Link className="text-[#666CFF]" href={'/'}>Sign In</Link></h3>
             </form>
