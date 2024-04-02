@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { useState } from "react"
 import PageLayout from "@/components/PageLayout"
+import {toast} from "react-hot-toast";
 
 interface FormData {
     fullname: string;
@@ -23,14 +24,14 @@ const signup = () => {
         });
     }
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault()   
+        e.preventDefault()
         fetch("http://localhost:8000/users", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             mode: "cors",
             body: JSON.stringify(formData),
         }).then(() => {
-            console.log("new list addes");
+            toast.success("User Registers Successfully");
         });
     }
     return (

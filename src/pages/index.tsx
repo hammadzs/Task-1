@@ -3,6 +3,7 @@ import Link from "next/link"
 import { useState } from "react"
 
 import PageLayout from "@/components/PageLayout";
+import {toast} from "react-hot-toast";
 
 interface FormData {
   email: string;
@@ -23,23 +24,18 @@ export default function Home() {
   }
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    fetch("http://localhost:8000/users/")
-      .then(async (result) => {
-        const data = await result.json()
-        data.map((user: any) => {
-          if (user.email === formData.email) {
-            if (user.password === formData.password) {
-              console.log("login success");
-            } else {
-              console.log("Invalid");
-            }
-          } else {
-            console.log("Invalid");
-          }
-        })
-      })
-  };
+    const res = await fetch("http://localhost:8000/users/");
+    const users = await res.json();
+    const user = users.find((u: any) => u.email === formData.email);
 
+    if (!user) {
+      toast.error("Invalid Email Address");
+    } else if (user.password !== formData.password) {
+      toast.error("Invalid Password");
+    } else {
+      toast.success("Success");
+    }
+  };
 
   return (
     <PageLayout>
