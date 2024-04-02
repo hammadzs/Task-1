@@ -1,6 +1,8 @@
 import Link from "next/link"
 import { useState } from "react"
 import PageLayout from "@/components/PageLayout"
+import { toast } from "react-hot-toast";
+import { useRouter } from "next/router";
 
 interface FormData {
     fullname: string;
@@ -10,6 +12,7 @@ interface FormData {
 }
 
 const signup = () => {
+    const router = useRouter()
     const [formData, setFormData] = useState<FormData>({
         fullname: '',
         role: '',
@@ -24,7 +27,15 @@ const signup = () => {
     }
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        console.log(formData);
+        fetch("http://localhost:8000/users", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            mode: "cors",
+            body: JSON.stringify(formData),
+        }).then(() => {
+            toast.success("User Registers Successfully");
+            router.push("/")
+        });
     }
     return (
         <PageLayout>
