@@ -1,7 +1,11 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
-const Sidebar = () => {
-    const [menu, setMenu] = useState(true)
+
+interface Sidebar {
+    menu: boolean
+}
+
+const Sidebar: React.FC<Sidebar> = ({ menu }) => {
     return (
         <section className={`relative w-full h-screen ${menu ? 'md:max-w-[250px]' : "md:max-w-[128px]"}`}>
             <div className="flex justify-center items-center gap-x-3 py-10">
