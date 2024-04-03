@@ -5,7 +5,7 @@ interface PageProps {
 }
 const PageLayout = ({ children }: PageProps) => {
     return (
-        <div className="w-full h-full flex justify-center items-center">
+        <div className="relative w-full h-full flex justify-center items-center">
             <div className="max-w-[450px] w-full rounded-lg shadow-lg px-6 py-8 space-y-6 z-20 bg-white">
                 <div className="flex justify-center items-center gap-x-2">
                     <Image
