@@ -1,10 +1,12 @@
+import Header from '@/components/Header'
 import Sidebar from '@/components/Sidebar'
 import React from 'react'
 
 const createtask = () => {
   return (
-    <main>
+    <main className='flex'>
       <Sidebar />
+      <Header title="Create New  Task" />
     </main>
   )
 }
