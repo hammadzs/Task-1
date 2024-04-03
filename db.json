@@ -20,6 +20,13 @@
       "role": "Role1",
       "email": "hammadshamir70@gmail.com",
       "password": "hammad123"
+    },
+    {
+      "id": "abf1",
+      "fullname": "Azlan",
+      "role": "Role1",
+      "email": "azlan@gmail.com",
+      "password": "123"
     }
   ]
 }

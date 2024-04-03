@@ -27,7 +27,7 @@ const Sidebar: React.FC<Sidebar> = ({ menu }) => {
                         alt="Logo"
                         className="max-w-6 w-full"
                     />
-                    <h2 className={`text-base font-semibold ${menu ? "block" : "hidden"}`}>Taska</h2>
+                    <h2 className={`text-base font-semibold ${menu ? "block" : "hidden"}`}>Task</h2>
                 </div>
             </div>
         </section>
