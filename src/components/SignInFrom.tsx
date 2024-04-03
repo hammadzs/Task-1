@@ -2,8 +2,10 @@ import Link from "next/link"
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { toast } from "react-hot-toast";
+import { useRouter } from "next/router";
 
 const SignInFrom = () => {
+  const router = useRouter()
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -25,6 +27,7 @@ const SignInFrom = () => {
         toast.error("Invalid Password");
       } else {
         toast.success("Login Successfully");
+        router.push("/createtask")
       }
     },
   });

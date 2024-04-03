@@ -9,7 +9,7 @@ const PageLayout = ({ children }: PageProps) => {
             <div className="max-w-[450px] w-full rounded-lg shadow-lg px-6 py-8 space-y-6 z-20 bg-white">
                 <div className="flex justify-center items-center gap-x-2">
                     <Image
-                        src={'/img/logo.png'}
+                        src={'/img/book-square.svg'}
                         width={100}
                         height={100}
                         alt="Logo"
@@ -21,9 +21,9 @@ const PageLayout = ({ children }: PageProps) => {
                 {children}
             </div>
             <Image
-                src={'/img/Frame.png'}
-                width={1000}
-                height={1000}
+                src={'/img/Frame.svg'}
+                width={100}
+                height={100}
                 alt="Frame Image"
                 priority={false}
                 className="max-w-full w-full absolute left-0 bottom-0 z-[-1]"
