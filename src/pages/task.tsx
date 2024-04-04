@@ -3,7 +3,7 @@ import Header from '@/components/Header'
 import Sidebar from '@/components/Sidebar'
 import TaskTable from '@/components/TaskTable'
 import { useRouter } from 'next/router'
-const task = () => {
+const Task = () => {
     const router = useRouter();
     const [menu, setMenu] = useState(true)
     return (
@@ -22,4 +22,4 @@ const task = () => {
     )
 }
 
-export default task
+export default Task
