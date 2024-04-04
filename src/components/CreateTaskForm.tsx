@@ -24,9 +24,8 @@ const CreateTaskForm = () => {
             status: Yup.string()
                 .required('Status Required'),
             assignee: Yup.string()
-                .required('Status Required'),
+                .required('Assignee Required'),
             desc: Yup.string()
-                .max(15, 'Must be 15 characters or less')
                 .required('Status Required'),
         }),
         onSubmit: async values => {
@@ -71,7 +70,7 @@ const CreateTaskForm = () => {
                     <select id="priority" className="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:border-gray-600 placeholder-gray-600 dark:focus:ring-blue-500 dark:focus:border-blue-500 w-full" onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
                         value={formik.values.priority}>
-                        <option disabled>Select</option>
+                        <option >Select</option>
                         <option value="Low">Low</option>
                         <option value="Normal">Normal</option>
                         <option value="High">High</option>
@@ -85,7 +84,7 @@ const CreateTaskForm = () => {
                     <select id="status" className="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:border-gray-600 placeholder-gray-600 dark:focus:ring-blue-500 dark:focus:border-blue-500 w-full" onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
                         value={formik.values.status}>
-                        <option disabled>Select</option>
+                        <option >Select</option>
                         <option value="Pending">Pending</option>
                         <option value="Active">Active</option>
                         <option value="Closed">Closed</option>
@@ -101,7 +100,7 @@ const CreateTaskForm = () => {
                     <select id="assignee" className="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:border-gray-600 placeholder-gray-600 dark:focus:ring-blue-500 dark:focus:border-blue-500 w-full" onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
                         value={formik.values.assignee}>
-                        <option disabled>Select</option>
+                        <option>Select</option>
                         <option value="Syed Muqarrab">Syed Muqarrab</option>
                         <option value="Saud Haris">Saud Haris</option>
                         <option value="Saeed">Saeed</option>

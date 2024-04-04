@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
+import toast from 'react-hot-toast';
 
 
 export default function TaskTable() {
@@ -17,6 +18,17 @@ export default function TaskTable() {
 
         fetchData();
     }, []);
+    const handleDelete = (id: number) => {
+        const updatedTasks = tasks.filter(task => task.id !== id);
+        setTasks(updatedTasks);
+        fetch("http://localhost:8000/tasks/" + id, {
+            method: "DELETE",
+        }).then(() => {
+            toast.success("Task Deleted Successfully");
+        }).catch((err) => {
+            toast.error(err.message);
+        })
+    };
     return (
         <div className="rounded-lg border border-gray-200 shadow-lg mt-10">
             <div className="overflow-x-auto rounded-t-lg">
@@ -37,18 +49,55 @@ export default function TaskTable() {
                             tasks && tasks.map((item: any, index: number) => {
                                 return (
                                     <tr key={index}>
-                                        <td className="whitespace-nowrap p-6 font-medium text-gray-900">{item.title}</td>
-                                        <td className="whitespace-nowrap p-6 text-gray-700">{item.date}</td>
-                                        <td className="whitespace-nowrap p-6 text-gray-700">{item.assignee}</td>
-                                        <td className="whitespace-nowrap p-6 text-gray-700">{item.priority}</td>
-                                        <td className="whitespace-nowrap p-6 text-gray-700">{item.status}</td>
+                                        <td className="whitespace-nowrap p-6 font-semibold text-[#546FFF]">{item.title}</td>
+                                        <td className="whitespace-nowrap p-6 text-black">{item.date}</td>
+                                        <td className="whitespace-nowrap p-6 text-black">{item.assignee}</td>
+                                        <td className="whitespace-nowrap p-6 text-black flex items-center gap-x-3">
+                                            {
+                                                item.priority === "Low" ? (
+                                                    <Image
+                                                        src={'/img/yellow-flag.svg'}
+                                                        width={14}
+                                                        height={14}
+                                                        alt='Yellow Flag'
+                                                    />
+                                                ) : item.priority === "Normal" ? (
+                                                    (
+                                                        <Image
+                                                            src={'/img/red-flag.svg'}
+                                                            width={14}
+                                                            height={14}
+                                                            alt='Yellow Flag'
+                                                        />
+                                                    )
+                                                ) : (
+                                                    (
+                                                        <Image
+                                                            src={'/img/green-flag.svg'}
+                                                            width={14}
+                                                            height={14}
+                                                            alt='Yellow Flag'
+                                                        />
+                                                    )
+                                                )
+                                            }
+                                            {item.priority}
+                                        </td>
+                                        <td className={`whitespace-nowrap p-6 text-white`}>
+                                            <span className={`p-2 rounded ${item.status === "Pending" ? "bg-[#FFB72B]" : item.status === "Active" ? "bg-[#75D653]" : "bg-[#F25353]"
+                                                }`}>
+                                                {item.status}
+                                            </span>
+                                        </td>
                                         <td className="whitespace-nowrap p-6 text-gray-700">
-                                            <Image
-                                                src={'/img/delete-icon.svg'}
-                                                width={20}
-                                                height={20}
-                                                alt='Delete Icon'
-                                            />
+                                            <button onClick={() => handleDelete(item.id)}>
+                                                <Image
+                                                    src={'/img/delete-icon.svg'}
+                                                    width={20}
+                                                    height={20}
+                                                    alt='Delete Icon'
+                                                />
+                                            </button>
                                         </td>
                                     </tr>
                                 )
@@ -57,6 +106,6 @@ export default function TaskTable() {
                     </tbody>
                 </table>
             </div>
-        </div>
+        </div >
     )
 }
