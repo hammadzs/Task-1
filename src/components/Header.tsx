@@ -25,6 +25,7 @@ const Header: React.FC<header> = ({ title, setMenu, menu }) => {
                 <h2 className="text-2xl font-semibold">{title}</h2>
             </div>
             <button className="bg-[#546FFF] text-white py-2 px-8 rounded-lg" onClick={()=>{
+                localStorage.removeItem('user');
                 router.push("/")
             }}>Log Out</button>
         </header>

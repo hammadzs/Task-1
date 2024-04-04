@@ -26,6 +26,15 @@ const SignInFrom = () => {
       } else if (user.password !== values.password) {
         toast.error("Invalid Password");
       } else {
+        console.log(user);
+
+        const userData = {
+          id: user.id,
+          fullname: user.fullname,
+          role: user.role,
+          email: user.email
+        };
+        localStorage.setItem('user', JSON.stringify(userData));
         toast.success("Login Successfully");
         router.push("/task")
       }
