@@ -17,26 +17,30 @@ const SignInFrom = () => {
         .required('Password Required'),
     }),
     onSubmit: async values => {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_PORT}users`);
-      const users = await res.json();
-      const user = users.find((u: any) => u.email === values.email);
+      try {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_PORT}users`);
+        const users = await res.json();
+        const user = users.find((u: any) => u.email === values.email);
 
-      if (!user) {
-        toast.error("Invalid Email Address");
-      } else if (user.password !== values.password) {
-        toast.error("Invalid Password");
-      } else {
-        console.log(user);
+        if (!user) {
+          toast.error("Invalid Email Address");
+        } else if (user.password !== values.password) {
+          toast.error("Invalid Password");
+        } else {
+          console.log(user);
 
-        const userData = {
-          id: user.id,
-          fullname: user.fullname,
-          role: user.role,
-          email: user.email
-        };
-        localStorage.setItem('user', JSON.stringify(userData));
-        toast.success("Login Successfully");
-        router.push("/task")
+          const userData = {
+            id: user.id,
+            fullname: user.fullname,
+            role: user.role,
+            email: user.email
+          };
+          localStorage.setItem('user', JSON.stringify(userData));
+          toast.success("Login Successfully");
+          router.push("/task")
+        }
+      } catch (error) {
+        toast.error("Internal Server Error")
       }
     },
   });
