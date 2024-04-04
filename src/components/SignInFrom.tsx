@@ -17,7 +17,7 @@ const SignInFrom = () => {
         .required('Password Required'),
     }),
     onSubmit: async values => {
-      const res = await fetch("http://localhost:8000/users/");
+      const res = await fetch(`${process.env.NEXT_PUBLIC_PORT}users`);
       const users = await res.json();
       const user = users.find((u: any) => u.email === values.email);
 
@@ -26,6 +26,15 @@ const SignInFrom = () => {
       } else if (user.password !== values.password) {
         toast.error("Invalid Password");
       } else {
+        console.log(user);
+
+        const userData = {
+          id: user.id,
+          fullname: user.fullname,
+          role: user.role,
+          email: user.email
+        };
+        localStorage.setItem('user', JSON.stringify(userData));
         toast.success("Login Successfully");
         router.push("/task")
       }

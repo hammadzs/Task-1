@@ -27,6 +27,76 @@
       "role": "Role1",
       "email": "azlan@gmail.com",
       "password": "123"
+    },
+    {
+      "id": "3e90",
+      "fullname": "Aeiyan",
+      "role": "Role1",
+      "email": "aeiyan@gmail.com",
+      "password": "123"
+    },
+    {
+      "id": "b78e",
+      "fullname": "New User",
+      "role": "Role1",
+      "email": "newuser@gmail.com",
+      "password": "newuser"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "63f9",
+      "title": "Title 1",
+      "date": "2024-04-04",
+      "priority": "Normal",
+      "status": "Pending",
+      "assignee": "Saud Haris",
+      "desc": "Description"
+    },
+    {
+      "id": "e549",
+      "title": "Title 3",
+      "date": "2024-04-05",
+      "priority": "Normal",
+      "status": "Active",
+      "assignee": "Saud Haris",
+      "desc": "Description 2"
+    },
+    {
+      "id": "6efd",
+      "title": "Task 4",
+      "date": "2024-04-18",
+      "priority": "High",
+      "status": "Closed",
+      "assignee": "Saeed",
+      "desc": "Description 2"
+    },
+    {
+      "id": "7175",
+      "title": "Title 5",
+      "date": "2024-04-05",
+      "priority": "Low",
+      "status": "Active",
+      "assignee": "Saud Haris",
+      "desc": "Description 244"
+    },
+    {
+      "id": "b15e",
+      "title": "Task 6",
+      "date": "2024-04-06",
+      "priority": "Low",
+      "status": "Closed",
+      "assignee": "Syed Muqarrab",
+      "desc": "Description 244"
+    },
+    {
+      "id": "a65f",
+      "title": "Title 7",
+      "date": "2024-04-05",
+      "priority": "Low",
+      "status": "Pending",
+      "assignee": "Syed Muqarrab",
+      "desc": "Description"
     }
   ]
 }
