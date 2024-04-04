@@ -121,7 +121,7 @@ const CreateTaskForm = () => {
                 </div>
             </div>
             <div className="w-full text-right mt-auto">
-                <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-8 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Create Task</button>
+                <button type="submit" className="text-white bg-[#546FFF] hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-8 py-2.5 focus:outline-none dark:focus:ring-blue-800">Create Task</button>
             </div>
         </form>
 
