@@ -29,5 +29,24 @@
       "password": "123"
     }
   ],
-  "tasks":[]
+  "tasks": [
+    {
+      "id": "6df6",
+      "title": "Title 1",
+      "date": "2024-04-05",
+      "priority": "Low",
+      "status": "Pending",
+      "assignee": "Saud Haris",
+      "desc": "Description"
+    },
+    {
+      "id": "d320",
+      "title": "Task 2",
+      "date": "2024-04-05",
+      "priority": "Low",
+      "status": "Pending",
+      "assignee": "Syed Muqarrab",
+      "desc": "Description 2"
+    }
+  ]
 }
