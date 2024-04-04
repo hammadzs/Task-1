@@ -47,6 +47,15 @@
       "status": "Pending",
       "assignee": "Syed Muqarrab",
       "desc": "Description 2"
+    },
+    {
+      "id": "ee94",
+      "title": "Learn DevOps",
+      "date": "2024-04-05",
+      "priority": "High",
+      "status": "Active",
+      "assignee": "Saeed",
+      "desc": "Description"
     }
   ]
 }

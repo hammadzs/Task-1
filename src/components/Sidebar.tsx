@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 
 interface Sidebar {
     menu: boolean
@@ -19,7 +20,7 @@ const Sidebar: React.FC<Sidebar> = ({ menu }) => {
                 <h2 className={`text-3xl font-semibold ${menu ? "block" : "hidden"}`}>Taska</h2>
             </div>
             <div className='py-10'>
-                <div className="flex justify-center items-center gap-x-3 ">
+                <Link href={'/task'} className="flex justify-center items-center gap-x-3 ">
                     <Image
                         src={'/img/book.svg'}
                         width={100}
@@ -28,7 +29,7 @@ const Sidebar: React.FC<Sidebar> = ({ menu }) => {
                         className="max-w-6 w-full"
                     />
                     <h2 className={`text-base font-semibold ${menu ? "block" : "hidden"}`}>Task</h2>
-                </div>
+                </Link>
             </div>
         </section>
     )
