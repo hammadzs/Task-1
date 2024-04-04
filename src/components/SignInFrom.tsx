@@ -2,8 +2,10 @@ import Link from "next/link"
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { toast } from "react-hot-toast";
+import { useRouter } from "next/router";
 
 const SignInFrom = () => {
+  const router = useRouter()
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -25,6 +27,7 @@ const SignInFrom = () => {
         toast.error("Invalid Password");
       } else {
         toast.success("Login Successfully");
+        router.push("/task")
       }
     },
   });
@@ -59,7 +62,7 @@ const SignInFrom = () => {
         className="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600"
       >
         <input
-          type="text"
+          type="password"
           id="password"
           name="password"
           className="peer border-none bg-transparent placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 text-base p-4"
