@@ -11,7 +11,7 @@ interface header {
 const Header: React.FC<header> = ({ title, setMenu, menu }) => {
     const router = useRouter();
     return (
-        <header className="p-10 w-full flex justify-between items-center max-h-24">
+        <header className="py-10 w-full flex justify-between items-center max-h-24">
             <div className="flex-1 flex items-center gap-x-4">
                 <button onClick={() => setMenu(!menu)}>
                     <Image
@@ -25,7 +25,7 @@ const Header: React.FC<header> = ({ title, setMenu, menu }) => {
                 <h2 className="text-2xl font-semibold">{title}</h2>
             </div>
             <button className="bg-[#546FFF] text-white py-2 px-8 rounded-lg" onClick={()=>{
-                router.push("/createtask")
+                router.push("/")
             }}>Log Out</button>
         </header>
     )
