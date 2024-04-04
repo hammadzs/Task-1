@@ -29,7 +29,7 @@ const CreateTaskForm = () => {
                 .required('Status Required'),
         }),
         onSubmit: async values => {
-            fetch("http://localhost:8000/tasks", {
+            fetch(`${process.env.NEXT_PUBLIC_PORT}tasks`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 mode: "cors",

@@ -34,6 +34,13 @@
       "role": "Role1",
       "email": "aeiyan@gmail.com",
       "password": "123"
+    },
+    {
+      "id": "b78e",
+      "fullname": "New User",
+      "role": "Role1",
+      "email": "newuser@gmail.com",
+      "password": "newuser"
     }
   ],
   "tasks": [
@@ -81,6 +88,15 @@
       "status": "Closed",
       "assignee": "Syed Muqarrab",
       "desc": "Description 244"
+    },
+    {
+      "id": "a65f",
+      "title": "Title 7",
+      "date": "2024-04-05",
+      "priority": "Low",
+      "status": "Pending",
+      "assignee": "Syed Muqarrab",
+      "desc": "Description"
     }
   ]
 }

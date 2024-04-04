@@ -17,7 +17,7 @@ const SignInFrom = () => {
         .required('Password Required'),
     }),
     onSubmit: async values => {
-      const res = await fetch("http://localhost:8000/users/");
+      const res = await fetch(`${process.env.NEXT_PUBLIC_PORT}users`);
       const users = await res.json();
       const user = users.find((u: any) => u.email === values.email);
 

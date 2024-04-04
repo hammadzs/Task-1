@@ -8,7 +8,7 @@ export default function TaskTable() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const res = await fetch(`http://localhost:8000/tasks`);
+                const res = await fetch(`${process.env.NEXT_PUBLIC_PORT}tasks`);
                 const data = await res.json();
                 setTasks(data);
             } catch (error) {
@@ -21,7 +21,7 @@ export default function TaskTable() {
     const handleDelete = (id: number) => {
         const updatedTasks = tasks.filter(task => task.id !== id);
         setTasks(updatedTasks);
-        fetch("http://localhost:8000/tasks/" + id, {
+        fetch(`${process.env.NEXT_PUBLIC_PORT}tasks/` + id, {
             method: "DELETE",
         }).then(() => {
             toast.success("Task Deleted Successfully");
