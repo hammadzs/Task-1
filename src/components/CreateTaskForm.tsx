@@ -71,10 +71,8 @@ const CreateTaskForm = () => {
                     <select id="priority" className="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:border-gray-600 placeholder-gray-600 dark:focus:ring-blue-500 dark:focus:border-blue-500 w-full" onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
                         value={formik.values.priority}>
-                        <option selected>Select</option>
-                        <option value="Low">
-                            <span>Low</span>
-                        </option>
+                        <option disabled>Select</option>
+                        <option value="Low">Low</option>
                         <option value="Normal">Normal</option>
                         <option value="High">High</option>
                     </select>
@@ -87,7 +85,7 @@ const CreateTaskForm = () => {
                     <select id="status" className="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:border-gray-600 placeholder-gray-600 dark:focus:ring-blue-500 dark:focus:border-blue-500 w-full" onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
                         value={formik.values.status}>
-                        <option selected>Select</option>
+                        <option disabled>Select</option>
                         <option value="Pending">Pending</option>
                         <option value="Active">Active</option>
                         <option value="Closed">Closed</option>
@@ -103,7 +101,7 @@ const CreateTaskForm = () => {
                     <select id="assignee" className="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:border-gray-600 placeholder-gray-600 dark:focus:ring-blue-500 dark:focus:border-blue-500 w-full" onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
                         value={formik.values.assignee}>
-                        <option selected>Select</option>
+                        <option disabled>Select</option>
                         <option value="Syed Muqarrab">Syed Muqarrab</option>
                         <option value="Saud Haris">Saud Haris</option>
                         <option value="Saeed">Saeed</option>
@@ -131,4 +129,4 @@ const CreateTaskForm = () => {
     )
 }
 
-export default CreateTaskForm
+export default CreateTaskForm;
