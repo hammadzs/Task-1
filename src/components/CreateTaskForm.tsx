@@ -43,8 +43,8 @@ const CreateTaskForm = () => {
         },
     });
     return (
-        <form onSubmit={formik.handleSubmit} className="max-w-screen-2xl flex flex-col m-auto mt-6 gap-y-6 max-h-96 h-full">
-            <div className="flex flex-col md:flex-row justify-center items-center gap-x-6">
+        <form onSubmit={formik.handleSubmit} className="max-w-screen-2xl flex flex-col m-auto md:mt-6 gap-y-6 md:max-h-96 md:h-full">
+            <div className="flex flex-col md:flex-row justify-center items-center gap-6">
                 <div className="w-full">
                     <label htmlFor="title" className="block mb-2 text-sm font-medium text-gray-900">Title</label>
                     <input type="text" id="title" name="title" className="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:border-gray-600 placeholder-gray-600 dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Task Title" required onChange={formik.handleChange}
@@ -64,7 +64,7 @@ const CreateTaskForm = () => {
                     ) : null}
                 </div>
             </div>
-            <div className="flex flex-col md:flex-row justify-center items-center gap-x-6">
+            <div className="flex flex-col md:flex-row justify-center items-center gap-6">
                 <div className="w-full">
                     <label htmlFor="priority" className="block mb-2 text-sm font-medium text-gray-900">Priority</label>
                     <select id="priority" className="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:border-gray-600 placeholder-gray-600 dark:focus:ring-blue-500 dark:focus:border-blue-500 w-full" onChange={formik.handleChange}
@@ -94,7 +94,7 @@ const CreateTaskForm = () => {
                     ) : null}
                 </div>
             </div>
-            <div className="flex flex-col md:flex-row justify-center items-center gap-x-6">
+            <div className="flex flex-col md:flex-row justify-center items-center gap-6">
                 <div className="w-full">
                     <label htmlFor="assignee" className="block mb-2 text-sm font-medium text-gray-900">Assignee</label>
                     <select id="assignee" className="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:border-gray-600 placeholder-gray-600 dark:focus:ring-blue-500 dark:focus:border-blue-500 w-full" onChange={formik.handleChange}
@@ -120,8 +120,8 @@ const CreateTaskForm = () => {
                     ) : null}
                 </div>
             </div>
-            <div className="w-full text-right mt-auto">
-                <button type="submit" className="text-white bg-[#546FFF] hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-8 py-2.5 focus:outline-none dark:focus:ring-blue-800">Create Task</button>
+            <div className="w-full text-right md:mt-auto">
+                <button type="submit" className="w-full md:w-auto text-white bg-[#546FFF] hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-8 py-2.5 focus:outline-none dark:focus:ring-blue-800">Create Task</button>
             </div>
         </form>
 

@@ -8,7 +8,7 @@ interface Sidebar {
 
 const Sidebar: React.FC<Sidebar> = ({ menu }) => {
     return (
-        <section className={`relative w-full h-screen ${menu ? 'md:max-w-[250px]' : "md:max-w-[128px]"}`}>
+        <section className={`hidden md:block relative w-full h-screen ${menu ? 'md:max-w-[250px]' : "md:max-w-[128px]"}`}>
             <div className="flex justify-center items-center gap-x-3 py-10">
                 <Image
                     src={'/img/book-square.svg'}

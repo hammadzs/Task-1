@@ -16,7 +16,7 @@ const Createtask = () => {
   return (
     <main className='flex'>
       <Sidebar menu={menu} />
-      <div className='w-full p-10'>
+      <div className='w-full p-6 md:p-10'>
         <Header title="Create New  Task" menu={menu} setMenu={setMenu} />
         <CreateTaskForm />
       </div>
