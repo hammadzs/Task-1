@@ -11,8 +11,8 @@ interface header {
 const Header: React.FC<header> = ({ title, setMenu, menu }) => {
     const router = useRouter();
     return (
-        <header className="py-6 md:py-10 w-full flex justify-between items-center max-h-24">
-            <div className="flex-1 flex items-center justify-between gap-x-4">
+        <header className="pb-6 md:pb-10 w-full flex justify-between  items-center max-h-24">
+            <div className="flex-1 flex items-center justify-between md:justify-start gap-x-4">
                 <Image
                     onClick={() => router.push("/task")}
                     src={'/img/book-square.svg'}

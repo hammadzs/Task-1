@@ -41,18 +41,16 @@
       "role": "Role1",
       "email": "newuser@gmail.com",
       "password": "newuser"
+    },
+    {
+      "id": "828c",
+      "fullname": "test.t1",
+      "role": "Role1",
+      "email": "test.t1@gmail.com",
+      "password": "test123"
     }
   ],
   "tasks": [
-    {
-      "id": "63f9",
-      "title": "Title 1",
-      "date": "2024-04-04",
-      "priority": "Normal",
-      "status": "Pending",
-      "assignee": "Saud Haris",
-      "desc": "Description"
-    },
     {
       "id": "e549",
       "title": "Title 3",
